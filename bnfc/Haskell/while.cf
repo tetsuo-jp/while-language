@@ -1,0 +1,46 @@
+-------------------------------------------------------------------------------
+-- The syntax of WHILE
+-------------------------------------------------------------------------------
+--
+-- Variables              ∋ X, Y, ...
+-- Arithmetic expressions ∋ E, F ::= n | X | E + F | E - F | E * F
+-- Boolean expressions    ∋ A, B ::= true | false | E = F | E <= F | not B | A && B | A || B
+-- Commands               ∋ C, D ::= X := E | C; D | if E then C else D | while E do { C }
+--
+-------------------------------------------------------------------------------
+
+entrypoints Com;
+
+-------------------------------------------------------------------------------
+-- Command
+-------------------------------------------------------------------------------
+
+CAsn.  Com ::= Ident ":=" AExp ;                 -- Assignment
+CSeq.  Com ::= Com ";" Com ;                     -- Sequence
+CLoop. Com ::= "while" BExp "do" "{" Com "}" ;   -- While loop
+
+
+-------------------------------------------------------------------------------
+-- Arithmetic expression
+-------------------------------------------------------------------------------
+
+APlus.  AExp  ::= AExp "+" AExp1 ;
+AMinus. AExp  ::= AExp "-" AExp1 ;
+ATimes. AExp  ::= AExp "*" AExp1 ;
+ANum.   AExp1 ::= Integer ;
+AVar.   AExp1 ::= Ident ;
+coercions AExp 1;
+
+
+-------------------------------------------------------------------------------
+-- Boolean expression
+-------------------------------------------------------------------------------
+
+BEq.    BExp  ::= AExp "="  AExp ;
+BLe.    BExp  ::= AExp "<=" AExp ;
+BNot.   BExp  ::= "not" BExp1 ;
+BAnd.   BExp  ::= BExp "&&" BExp1 ;
+BOr.    BExp  ::= BExp "||" BExp1 ;
+BTrue.  BExp1 ::= "true" ;
+BFalse. BExp1 ::= "false" ;
+coercions BExp 1;

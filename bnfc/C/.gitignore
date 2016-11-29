@@ -1,0 +1,12 @@
+*.o
+*.h
+Interpret
+Absyn.c
+Lexer.c
+Parser.c
+Printer.c
+Skeleton.c
+Test.c
+Testwhile
+while.l
+while.y

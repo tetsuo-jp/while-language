@@ -1,0 +1,13 @@
+*.hi
+*.o
+AbsWhile.hs
+DocWhile.txt
+ErrM.hs
+Interpret
+LexWhile.hs
+LexWhile.x
+ParWhile.hs
+ParWhile.y
+PrintWhile.hs
+SkelWhile.hs
+TestWhile.hs
